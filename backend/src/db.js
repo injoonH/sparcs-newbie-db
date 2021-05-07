@@ -8,31 +8,33 @@ Item example:
 let ITEMS = [];
 let ID_COUNTER = 1;
 
-function getAll() {
-  return ITEMS;
+function getAll(callback) {
+  callback(ITEMS);
 }
 
-function add(name) {
+function add(name, callback) {
   const newItem = {
     id: (ID_COUNTER++).toString(),
     name,
     done: false
   };
   ITEMS.push(newItem);
-  return newItem;
+  callback(newItem);
 }
 
-function remove(id) {
+function remove(id, callback) {
   ITEMS = ITEMS.filter(v => v.id !== id);
+  callback();
 }
 
-function setDone(id) {
+function setDone(id, callback) {
   ITEMS = ITEMS.map(v => {
     if (v.id === id) {
       v.done = true;
     }
     return v;
   });
+  callback();
 }
 
 module.exports = {
