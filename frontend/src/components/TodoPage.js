@@ -21,7 +21,7 @@ const Counter = () => {
   };
   const onFinishClick = (item) => {
     // 완료 처리 요청 전송
-    axios.put(`/api/todo/${item.id}/finish`)
+    axios.put(`/api/todo/${item._id}/finish`)
     // 완료 후 목록 조회 요청 전송
     .then(() => axios.get(`/api/todo`))
     // 응답이 돌아오면 응답 내용으로 목록을 변경
@@ -46,7 +46,7 @@ const Counter = () => {
 
   const todoItemEls = items.map(v => (
     <TodoItem
-      key={v.id}
+      key={v._id}
       name={v.name}
       done={v.done}
       onFinishClick={() => onFinishClick(v)}

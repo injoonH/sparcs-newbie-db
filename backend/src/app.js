@@ -1,10 +1,21 @@
 const express = require("express");
 const path = require("path");
+const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const todoRouter = require("./routes/todo");
 
 const app = express();
 const port = 8080;
+
+mongoose.connect('mongodb://localhost/todo', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+const db = mongoose.connection;
+db.once('open', function() {
+  console.log("DB connected!");
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
