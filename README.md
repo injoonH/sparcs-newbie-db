@@ -1,7 +1,8 @@
 # SPARCS Newbie Seminar - DB
 Demo code for the database session of the 2021 spring SPARCS newbie seminar.
 
-Slides will be avaliable on [our website](https://sparcs.org/seminars).
+Slides are avaliable on [our website](https://s3.ap-northeast-2.amazonaws.com/sparcs.home/jungnoh_1620546491315.pdf).
+(All seminars are [here](https://sparcs.org/seminars))
 
 ## Running the project
 Open two terminals and run the frontend and backend on each terminal.
