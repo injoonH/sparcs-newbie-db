@@ -1,6 +1,6 @@
-const express = require("express");
-const db = require("../db");
-const router  = express.Router();
+import { Router } from "express";
+import db from "../db.js";
+const router  = Router();
 
 router.get("/", (req, res) => {
   db.getAll((items) => {
@@ -21,10 +21,10 @@ router.delete("/:id", (req, res) => {
   });
 });
 
-router.put("/:id/finish", (req, res) => {
-  db.setDone(req.params.id, () => {
+router.put("/:id/:done/finish", (req, res) => {
+  db.toggleDone(req.params.id, JSON.parse(req.params.done), () => {
     res.status(200).send();
   });
 });
 
-module.exports = router;
+export default router;
